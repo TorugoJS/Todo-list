@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  background-color: #1c1c1e;
+}
+
+.container {
+  margin: 60px auto 0 auto;
+  padding-top: 60px;
+  text-align: center;
+  background-color: #1c1c1c;
+  max-width: 600px;
+  color: #c9c9c9;
+  border: 1px solid #000;
+  border-radius: 12px;
+}
+
+.container .time {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container h1 {
+  text-transform: uppercase;
+  color: #00d286;
+}
+
+.container .time .hours {
+  color: #00d286;
+  font-size: 2.2rem;
+}
+
+.container .time .date {
+  color: #c9c9c9;
+}
+.task {
+  display: flex;
+  margin: 150px auto 0 auto;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 40px;
+}
+
+.task-item {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  border: 1px solid #ccc;
+  justify-content: space-around;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+.task-item h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.task-item i {
+  color: #00d286;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.add-task {
+  display: flex;
+  margin-top: 80px;
+  justify-content: start;
+}
+
+.add-task input {
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 80%;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  border-radius: 0 0 0 12px;
+}
+
+.add-task button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #00d286;
+  font-size: 1.2rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 20%;
+  border-radius: 0 0 12px 0;
+}
