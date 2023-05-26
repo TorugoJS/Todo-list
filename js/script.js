@@ -26,7 +26,6 @@ var listaTarefas = [];
 
 const btn = document.querySelector(".btn");
 const divTask = document.querySelectorAll(".text");
-const excluir = document.getElementById("excluir");
 
 function adicionarTarefa(e) {
   e.preventDefault();
@@ -34,7 +33,6 @@ function adicionarTarefa(e) {
   let newTask = task.value;
 
   listaTarefas.push(newTask);
-  console.log(listaTarefas);
 
   task.value = "";
 
@@ -54,28 +52,24 @@ function mostrarTarefa() {
     <div class="task-item">
     <i class="fa-solid fa-check-double"></i>
     <h2>${tarefa}</h2>
-    <i class="fa-solid fa-trash"></i>
+    <i class="excluir fa-solid fa-trash"></i>
      </div>
     `;
 
-    var botaoExcluir = document.createElement("button");
-    botaoExcluir.textContent = "Excluir";
-    botaoExcluir.setAttribute("data-index", i);
-    botaoExcluir.addEventListener("click", excluirTarefa);
+    for (let i = 0; i < listaTarefas.length; i++) {
+      const apagarTarefa = document.querySelector(".excluir");
+      apagarTarefa.addEventListener("click", excluirTarefas);
+    }
 
     exibirTarefas.appendChild(elementoTarefa);
   }
 }
-
-function excluirTarefa() {
-  var indice = parseInt(this.getAttribute("data-index"));
-
-  // Remover a tarefa do array
-  listaTarefas.splice(indice, 1);
-  mostrarTarefa();
-}
-
 mostrarTarefa();
 
+function excluirTarefas() {
+  const valor = listaTarefas.pop();
+  console.log(valor);
+}
+
+// apagarTarefa.addEventListener("click", excluirTarefa);
 btn.addEventListener("click", adicionarTarefa);
-// excluir.addEventListener("click", excluirTarefa);
