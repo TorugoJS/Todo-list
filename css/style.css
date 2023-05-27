@@ -38,34 +38,54 @@
 .container .time .date {
   color: #c9c9c9;
 }
-.task {
-  display: flex;
-  margin: 150px auto 0 auto;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 500px;
-  gap: 40px;
-}
+/* ========================================== */
 
-.task-item {
-  display: flex;
-  padding: 20px;
-  align-items: center;
-  border: 1px solid #ccc;
-  justify-content: space-around;
-  border-radius: 10px;
-  font-size: 0.8rem;
-}
-.task-item h2 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-
-.task-item i {
+.tarefa i {
   color: #00d286;
   font-size: 1.1rem;
   cursor: pointer;
   padding: 5px;
+}
+
+.tarefas {
+  margin: 40px auto 0 auto;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.tarefas div {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 0 auto;
+  /* flex-wrap: wrap; */
+}
+.ativo {
+  background-color: #00d286;
+}
+.tarefas div h2 {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.tarefas .excluir {
+  color: #00d286;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.tarefas .concluir {
+  color: #00d286;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .add-task {

@@ -22,54 +22,55 @@ setInterval(() => {
 
 //task
 
-var listaTarefas = [];
-
 const btn = document.querySelector(".btn");
-const divTask = document.querySelectorAll(".text");
+const container = document.querySelector(".tarefas");
+const deletar = document.querySelector("excluir");
+const tarefaDiv = document.querySelectorAll(".tarefas div");
+console.log(tarefaDiv);
+
+var listaTarefas = [];
 
 function adicionarTarefa(e) {
   e.preventDefault();
-  let task = document.getElementById("task");
-  let newTask = task.value;
+  let tarefaInput = document.getElementById("task");
+  let novaTarefa = task.value;
 
-  listaTarefas.push(newTask);
+  listaTarefas.push(novaTarefa);
 
-  task.value = "";
+  tarefaInput.value = "";
 
   mostrarTarefa();
 }
 
 function mostrarTarefa() {
-  let exibirTarefas = document.querySelector(".tarefas");
+  let exibirTarefas = "";
 
-  exibirTarefas.innerHTML = "";
+  // exibirTarefas.innerHTML = "";
 
-  for (let i = 0; i < listaTarefas.length; i++) {
-    let tarefa = listaTarefas[i];
-
-    let elementoTarefa = document.createElement("div");
-    elementoTarefa.innerHTML = `
-    <div class="task-item">
-    <i class="fa-solid fa-check-double"></i>
+  listaTarefas.forEach((tarefa, posicao) => {
+    exibirTarefas =
+      exibirTarefas +
+      `
+    <div>
+    <i class="concluir fa-solid fa-check-double" onclick="tarefaConcluida(${posicao})"></i>
     <h2>${tarefa}</h2>
-    <i class="excluir fa-solid fa-trash"></i>
+    <i class="excluir fa-solid fa-trash" onclick="deletarItem(${posicao})"></i>
      </div>
     `;
-
-    for (let i = 0; i < listaTarefas.length; i++) {
-      const apagarTarefa = document.querySelector(".excluir");
-      apagarTarefa.addEventListener("click", excluirTarefas);
-    }
-
-    exibirTarefas.appendChild(elementoTarefa);
-  }
+  });
+  container.innerHTML = exibirTarefas;
 }
 mostrarTarefa();
 
-function excluirTarefas() {
-  const valor = listaTarefas.pop();
-  console.log(valor);
+function deletarItem(posicao) {
+  console.log(posicao);
+  listaTarefas.splice(posicao, 1);
+
+  mostrarTarefa();
 }
 
-// apagarTarefa.addEventListener("click", excluirTarefa);
+function tarefaConcluida() {
+  tarefaDiv.classList.add("ativo");
+}
+
 btn.addEventListener("click", adicionarTarefa);
